@@ -1,0 +1,7 @@
+.vscode/
+
+dist/*
+!dist/index.html
+!dist/icon.png
+
+node_modules/

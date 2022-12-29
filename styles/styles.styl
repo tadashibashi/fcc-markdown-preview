@@ -1,0 +1,162 @@
+$editor-height = 87vh
+$code-font = 'Courier New', Courier, monospace
+$main-font = "Montserrat", sans-serif
+$gutter-width = 40px
+
+$bg-color = rgb(164, 164, 164)
+$gutter-bg-color = rgb(219, 219, 219)
+$editor-bg-color = rgb(225, 225, 225)
+$preview-bg-color = rgb(204, 204, 204)
+
+user-select(n)
+    -webkit-user-select n
+    -moz-user-select n
+    -ms-user-select n
+    user-select n
+
+*
+    box-sizing: border-box
+html
+    margin: 0
+    padding: 0
+    background-color: $bg-color
+body
+    margin: 0
+    padding: 0
+    font-family: $main-font
+
+h1
+    text-align: center
+    margin: 1rem
+    font-family: "Lobster Two", serif
+    font-size: 2.6rem
+    user-select(none)
+
+
+#text-windows
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 1fr
+    align-content: center
+
+    padding: 0 1rem
+    overflow: hidden
+
+    width: 100%
+
+.text-editor
+    grid-column: 1
+    grid-row: 1
+    width: 100%
+    height: $editor-height
+
+    display: grid
+    grid-template-columns: $gutter-width 1fr
+
+#editor
+    border: 1px solid gray
+    border-right: none
+    outline: none
+    height: $editor-height
+    width: 100%
+    resize: none
+    font-family: $code-font
+    font-size: 1rem
+    grid-column: 2
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: scroll;
+    background-color: $editor-bg-color
+
+.gutter
+    width: 100%
+    height: $editor-height
+    overflow: hidden
+    
+    grid-column: 1
+    padding: 0
+    margin: 0
+    border: rgb(105, 105, 105) 1px solid
+    border-right: none
+    background-color: $gutter-bg-color
+
+    ul
+        padding: .15rem 0 0 0
+        margin: 0
+    li
+        list-style: none
+        font-family: $code-font
+        font-size: 1rem
+        margin: 0
+        text-align: center
+    li.current
+        background-color: gray
+
+$code-bg-color = rgb(233, 233, 233)
+
+#preview
+    border: 1px solid gray
+    height: $editor-height
+    overflow: auto
+    grid-column: 2
+    grid-row: 1
+    width: 100%
+    padding: 0.5rem 1rem 1rem 1rem
+    margin-top: 0
+    background-color: $preview-bg-color
+
+    h1
+        user-select(unset)
+        font-family: unset
+        font-size: 2rem
+        text-align: unset
+        margin: unset
+        &::after
+            content: " "
+            display: block
+            border-bottom: 1px gray solid
+            padding-top: 4px
+    h2, h3, h4, h5, h6
+        &::after
+            content: " "
+            display: block
+            border-bottom: 1px rgb(153, 153, 153) solid
+            padding-top: 4px
+    h2
+        margin: .5rem 0
+
+    h3
+        margin: .25rem 0
+    h4 
+        margin: .1rem 0
+    
+    code 
+        display: block
+        width: 100%
+        background-color: $code-bg-color
+        padding: .25rem .5rem
+        border-radius: 8px
+        box-shadow: 0px 0px 1px rgba(128, 128, 128, 0.526)
+        font-style: normal
+    img
+        max-width: 100%
+        display: block
+        margin-bottom: 1rem
+
+    p
+        code
+            display: inline
+            background-color: $code-bg-color
+            margin: 0 .1rem
+            font-style: normal
+
+    blockquote
+        border-left: 3px gray solid
+        padding-left: .5rem 
+        border-radius: 2px     
+
+    table, th, td
+        border: 1px rgb(136, 136, 136) solid
+        border-collapse: collapse
+        padding: .25rem .5rem
+
